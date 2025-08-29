@@ -1,0 +1,104 @@
+/* Base */
+* { margin:0; padding:0; box-sizing:border-box; }
+:root{
+  --ink:#003049;
+  --sea:#0a6fae;
+  --gold:#ffcc00;
+  --beige:#f5f5dc;
+  --bg:#fdfdfd;
+  --muted:#666;
+}
+body{ font-family: "Segoe UI", system-ui, Arial, sans-serif; background:var(--bg); color:#222; line-height:1.6; overflow-x:hidden; }
+
+/* Entrance Overlay */
+.intro{
+  position:fixed; inset:0; background:linear-gradient(135deg, var(--ink), var(--sea));
+  display:flex; align-items:center; justify-content:center; z-index:10000; animation:introFade 2s forwards;
+}
+.intro-text{ color:var(--gold); font-size:3rem; font-weight:800; letter-spacing:.5px; text-align:center; }
+
+/* Navbar */
+header{ position:sticky; top:0; z-index:999; background:rgba(0,48,73,.92); backdrop-filter:saturate(140%) blur(6px); }
+nav{ max-width:1200px; margin:auto; padding:14px 20px; display:flex; align-items:center; justify-content:space-between; }
+.logo{ color:#fff; font-size:24px; font-weight:800; }
+.nav-links{ list-style:none; display:flex; gap:18px; }
+.nav-links a{ color:#fff; text-decoration:none; font-weight:600; padding:6px 8px; border-radius:8px; transition:all .25s; }
+.nav-links a:hover{ background:rgba(255,255,255,.12); color:var(--gold); transform:translateY(-1px); }
+.book-cta{ color:var(--ink); background:var(--gold); text-decoration:none; padding:8px 16px; border-radius:999px; font-weight:800; transition:.25s; }
+.book-cta:hover{ transform:translateY(-1px) scale(1.03); }
+
+/* Hero */
+.hero{ position:relative; }
+.hero img{ width:100%; height:88vh; object-fit:cover; filter:brightness(70%); }
+.glass{ background:rgba(255,255,255,.12); padding:22px 28px; border-radius:18px; border:1px solid rgba(255,255,255,.25); backdrop-filter: blur(6px); }
+.hero-text{ position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; color:#fff; text-align:center; gap:10px; }
+.hero-text h2{ font-size:3rem; }
+.btn{ display:inline-block; background:var(--gold); color:#222; text-decoration:none; padding:12px 22px; border-radius:999px; font-weight:800; transition:.25s; }
+.btn:hover{ transform:translateY(-1px) scale(1.03); }
+.btn.wide{ padding:14px 26px; }
+
+/* Sections */
+section{ padding:64px 6vw; }
+.underline{ position:relative; text-align:center; color:var(--ink); margin-bottom:24px; font-size:2rem; }
+.underline::after{ content:""; display:block; width:70px; height:4px; background:var(--gold); border-radius:2px; margin:10px auto 0; }
+.section-sub{ text-align:center; color:var(--muted); margin-bottom:14px; }
+
+/* Cards & galleries */
+.card{ position:relative; overflow:hidden; border-radius:14px; box-shadow:0 10px 24px rgba(0,0,0,.12); transform:translateZ(0); }
+.card img{ display:block; width:280px; height:200px; object-fit:cover; transition: transform .5s ease; }
+.card:hover img{ transform:scale(1.08); }
+.card-info{ position:absolute; left:0; right:0; bottom:0; padding:10px 12px; background:linear-gradient(180deg, transparent, rgba(0,0,0,.65)); color:#fff; }
+.room-gallery, .restaurant-gallery, .gallery-images{ display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
+
+/* Banquet */
+.banquet img{ width:100%; max-height:420px; object-fit:cover; border-radius:14px; box-shadow:0 10px 24px rgba(0,0,0,.12); }
+.parallax{ will-change:transform; }
+
+/* Feature & amenities lists */
+.features-list{ list-style:none; max-width:900px; margin:0 auto; }
+.features-list li{ background:var(--beige); margin:10px 0; padding:14px 16px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,.08); transition:transform .25s; }
+.features-list li:hover{ transform:translateX(6px); }
+.amenities-grid{ list-style:none; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; max-width:1000px; margin:0 auto; }
+.amenities-grid li{ background:#fff; border:1px solid #eee; border-radius:12px; padding:14px 16px; box-shadow:0 4px 10px rgba(0,0,0,.06); }
+
+/* Testimonials */
+.testimonials{ display:grid; gap:14px; max-width:900px; margin:0 auto; }
+blockquote{ background:#fff; border-left:5px solid var(--gold); padding:14px 16px; border-radius:8px; box-shadow:0 4px 10px rgba(0,0,0,.06); }
+
+/* Booking */
+.booking{ background:linear-gradient(135deg, #f7f7ef, #e9f5fb); }
+.booking-form{ max-width:1000px; margin:0 auto 24px; padding:20px; border-radius:16px; }
+.booking-form .grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+.booking-form label{ font-weight:700; color:var(--ink); }
+.booking-form input, .booking-form select, .booking-form textarea{
+  width:100%; padding:10px 12px; border:1px solid #d9d9d9; border-radius:10px; outline:none; transition:border-color .2s, box-shadow .2s;
+}
+.booking-form input:focus, .booking-form select:focus, .booking-form textarea:focus{
+  border-color:var(--sea); box-shadow:0 0 0 3px rgba(10,111,174,.15);
+}
+.booking-form .full{ grid-column:1 / -1; }
+.msg{ margin-top:10px; font-weight:700; }
+.map-wrap{ max-width:1100px; margin:0 auto; border-radius:16px; overflow:hidden; box-shadow:0 10px 24px rgba(0,0,0,.12); }
+.map{ width:100%; height:360px; border:0; display:block; }
+
+/* Contact + Footer */
+.contact{ text-align:center; background:#f1f5f9; border-radius:16px; padding:40px; max-width:1100px; margin:0 auto; }
+footer{ background:var(--ink); color:#fff; text-align:center; padding:16px; margin-top:24px; }
+
+/* Animations */
+.fade-in{ animation:fadeIn 1.2s ease both; }
+.fade-in-delay{ animation:fadeIn 2s ease both; }
+.slide-up{ animation:slideUp 1s ease both; }
+.bounce{ animation:bounce 2s infinite; }
+@keyframes fadeIn{ from{opacity:0} to{opacity:1} }
+@keyframes slideUp{ from{transform:translateY(24px); opacity:0} to{transform:translateY(0); opacity:1} }
+@keyframes bounce{ 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+@keyframes introFade{ 0%{opacity:1} 100%{opacity:0; visibility:hidden} }
+
+/* Responsive */
+@media (max-width: 900px){
+  .hero img{ height:70vh; }
+  .hero-text h2{ font-size:2.1rem; }
+  .booking-form .grid{ grid-template-columns:1fr; }
+  .nav-links{ display:none; } /* keep it simple for demo */
+}
